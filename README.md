@@ -4,5 +4,7 @@
 
 Public API Credits: https://newsapi.org
 
-https://github.com/user-attachments/assets/a1043e96-b7c1-4193-8681-4a76813520dc
+
+https://github.com/user-attachments/assets/e50af272-c03a-4248-8255-e7a24b27adae
+
 
