@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FDC311802CA9932800521A90 /* BookmarksModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FDC3117E2CA9932800521A90 /* BookmarksModel.xcdatamodeld */; };
+		FDC311822CA9935D00521A90 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC311812CA9935D00521A90 /* CoreDataStorage.swift */; };
+		FDC311942CA9983900521A90 /* NewsAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC311932CA9983900521A90 /* NewsAdaptor.swift */; };
+		FDC311962CA99F7400521A90 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC311952CA99F7400521A90 /* DataStorage.swift */; };
+		FDC311982CA9A01200521A90 /* ArticleStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC311972CA9A01200521A90 /* ArticleStore.swift */; };
+		FDC311A32CA9A49700521A90 /* NewsEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC311A12CA9A49700521A90 /* NewsEntity+CoreDataClass.swift */; };
+		FDC311A42CA9A49700521A90 /* NewsEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC311A22CA9A49700521A90 /* NewsEntity+CoreDataProperties.swift */; };
+		FDC311A72CA9AEBA00521A90 /* BookmarksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC311A62CA9AEBA00521A90 /* BookmarksView.swift */; };
+		FDC311A92CA9AEEE00521A90 /* BookmarksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC311A82CA9AEEE00521A90 /* BookmarksViewModel.swift */; };
 		FDD963262C9BFC2E00AD563E /* NewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD963252C9BFC2E00AD563E /* NewsApp.swift */; };
 		FDD9632A2C9BFC2F00AD563E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDD963292C9BFC2F00AD563E /* Assets.xcassets */; };
 		FDD9632D2C9BFC2F00AD563E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDD9632C2C9BFC2F00AD563E /* Preview Assets.xcassets */; };
@@ -53,6 +62,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FDC3117F2CA9932800521A90 /* Bookmark.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bookmark.xcdatamodel; sourceTree = "<group>"; };
+		FDC311812CA9935D00521A90 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
+		FDC311932CA9983900521A90 /* NewsAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAdaptor.swift; sourceTree = "<group>"; };
+		FDC311952CA99F7400521A90 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
+		FDC311972CA9A01200521A90 /* ArticleStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleStore.swift; sourceTree = "<group>"; };
+		FDC311A12CA9A49700521A90 /* NewsEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FDC311A22CA9A49700521A90 /* NewsEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FDC311A62CA9AEBA00521A90 /* BookmarksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksView.swift; sourceTree = "<group>"; };
+		FDC311A82CA9AEEE00521A90 /* BookmarksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewModel.swift; sourceTree = "<group>"; };
 		FDD963222C9BFC2E00AD563E /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDD963252C9BFC2E00AD563E /* NewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsApp.swift; sourceTree = "<group>"; };
 		FDD963292C9BFC2F00AD563E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -109,6 +127,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FDC311832CA9958100521A90 /* LocalStorage */ = {
+			isa = PBXGroup;
+			children = (
+				FDC311952CA99F7400521A90 /* DataStorage.swift */,
+				FDC311812CA9935D00521A90 /* CoreDataStorage.swift */,
+				FDC3117E2CA9932800521A90 /* BookmarksModel.xcdatamodeld */,
+				FDC311912CA9979000521A90 /* Models */,
+				FDC311972CA9A01200521A90 /* ArticleStore.swift */,
+			);
+			path = LocalStorage;
+			sourceTree = "<group>";
+		};
+		FDC311912CA9979000521A90 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FDC311A12CA9A49700521A90 /* NewsEntity+CoreDataClass.swift */,
+				FDC311A22CA9A49700521A90 /* NewsEntity+CoreDataProperties.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FDC311922CA9982E00521A90 /* Adaptors */ = {
+			isa = PBXGroup;
+			children = (
+				FDC311932CA9983900521A90 /* NewsAdaptor.swift */,
+			);
+			path = Adaptors;
+			sourceTree = "<group>";
+		};
+		FDC311A52CA9AEAB00521A90 /* Bookmarks */ = {
+			isa = PBXGroup;
+			children = (
+				FDC311A62CA9AEBA00521A90 /* BookmarksView.swift */,
+				FDC311A82CA9AEEE00521A90 /* BookmarksViewModel.swift */,
+			);
+			path = Bookmarks;
+			sourceTree = "<group>";
+		};
 		FDD963192C9BFC2E00AD563E = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +188,8 @@
 		FDD963242C9BFC2E00AD563E /* NewsApp */ = {
 			isa = PBXGroup;
 			children = (
+				FDC311922CA9982E00521A90 /* Adaptors */,
+				FDC311832CA9958100521A90 /* LocalStorage */,
 				FDD9636F2C9C32E600AD563E /* Views */,
 				FDD9635D2C9C124200AD563E /* Utility */,
 				FDD963532C9C0B1E00AD563E /* Models */,
@@ -206,6 +264,7 @@
 		FDD9636F2C9C32E600AD563E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FDC311A52CA9AEAB00521A90 /* Bookmarks */,
 				FDD9637F2C9CA1AE00AD563E /* NewsDetails */,
 				FDD963702C9C32FC00AD563E /* NewsDashboard */,
 			);
@@ -372,6 +431,8 @@
 				FDD963502C9BFD9900AD563E /* APIConstants.swift in Sources */,
 				FDD9636B2C9C2CA800AD563E /* NewsFetcher.swift in Sources */,
 				FDD963742C9C338300AD563E /* NewsRowViewModel.swift in Sources */,
+				FDC311962CA99F7400521A90 /* DataStorage.swift in Sources */,
+				FDC311822CA9935D00521A90 /* CoreDataStorage.swift in Sources */,
 				FDD963722C9C330F00AD563E /* NewsDashboardViewModel.swift in Sources */,
 				FDD963762C9C387F00AD563E /* Array+Extension.swift in Sources */,
 				FDD963812C9CA1BE00AD563E /* ArticleDetailsView.swift in Sources */,
@@ -379,7 +440,14 @@
 				FDD9636D2C9C2F1900AD563E /* HeadlinesRequest.swift in Sources */,
 				FDD963692C9C1E2E00AD563E /* APIService.swift in Sources */,
 				FDD963672C9C177500AD563E /* NewsRequest.swift in Sources */,
+				FDC311A32CA9A49700521A90 /* NewsEntity+CoreDataClass.swift in Sources */,
+				FDC311A42CA9A49700521A90 /* NewsEntity+CoreDataProperties.swift in Sources */,
+				FDC311802CA9932800521A90 /* BookmarksModel.xcdatamodeld in Sources */,
+				FDC311982CA9A01200521A90 /* ArticleStore.swift in Sources */,
 				FDD963592C9C0D3100AD563E /* Source.swift in Sources */,
+				FDC311A72CA9AEBA00521A90 /* BookmarksView.swift in Sources */,
+				FDC311942CA9983900521A90 /* NewsAdaptor.swift in Sources */,
+				FDC311A92CA9AEEE00521A90 /* BookmarksViewModel.swift in Sources */,
 				FDD963552C9C0B4B00AD563E /* News.swift in Sources */,
 				FDD963522C9BFE5F00AD563E /* NewsDashboard.swift in Sources */,
 				FDD963572C9C0C6900AD563E /* Article.swift in Sources */,
@@ -706,6 +774,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FDC3117E2CA9932800521A90 /* BookmarksModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FDC3117F2CA9932800521A90 /* Bookmark.xcdatamodel */,
+			);
+			currentVersion = FDC3117F2CA9932800521A90 /* Bookmark.xcdatamodel */;
+			path = BookmarksModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FDD9631A2C9BFC2E00AD563E /* Project object */;
 }

@@ -13,9 +13,10 @@ final class NewsDashboardViewModel: ObservableObject {
   @Published var searchText: String = ""
   @Published var newsDataSource: [NewsRowViewModel] = []
   @Published var topHeadlinesSource: [NewsRowViewModel] = []
-  
+  private var defaultCountry = "India"
   private let newsFetchable: NewsFetchable
   private var disposables = Set<AnyCancellable>()
+  private var articleStore: ArticleStore = ArticleStore()
   
   init(newsFetchable: NewsFetchable = NewsFetcher(),
        scheduler: DispatchQueue = DispatchQueue(label: "NewsDashboardViewModel")) {
@@ -26,16 +27,18 @@ final class NewsDashboardViewModel: ObservableObject {
       .debounce(for: .seconds(0.5), scheduler: scheduler)
       .sink(receiveValue: fetchNews(searchText:))
       .store(in: &disposables)
+    // By Default displaying news for India.
+    fetchNews(searchText: defaultCountry)
   }
   
   func fetchNews(searchText: String) {
-    if searchText.isEmpty {
-      fetchTopArticles()
-      return
-    }
-    newsFetchable.search(searchText).map { response in
-      print(response)
-      return response.articles.map(NewsRowViewModel.init)
+    newsFetchable.search(searchText.isEmpty ? defaultCountry : searchText).map {[weak self] response in
+      return response.articles.map { article in
+        guard let articleStore = self?.articleStore else {
+          return NewsRowViewModel(article: article)
+        }
+        return NewsRowViewModel(article: article, articleStore: articleStore)
+      }
     }
     .map(Array.removeDuplicates)
       .receive(on: DispatchQueue.main)
@@ -59,9 +62,13 @@ final class NewsDashboardViewModel: ObservableObject {
   }
   
   func fetchTopArticles() {
-    newsFetchable.topArticles().map { response in
-      print(response)
-      return response.articles.map(NewsRowViewModel.init)
+    newsFetchable.topArticles().map { [weak self] response in
+      return response.articles.map { article in
+        guard let articleStore = self?.articleStore else {
+          return NewsRowViewModel(article: article)
+        }
+        return NewsRowViewModel(article: article, articleStore: articleStore)
+      }
     }
     .map(Array.removeDuplicates)
       .receive(on: DispatchQueue.main)

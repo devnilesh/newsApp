@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ArticleDetailsView: View {
-  var viewModel: NewsRowViewModel
+  @ObservedObject var viewModel: NewsRowViewModel
   
   init(viewModel: NewsRowViewModel) {
     self.viewModel = viewModel
@@ -42,8 +42,13 @@ struct ArticleDetailsView: View {
           }
         }
         Spacer()
-    }
-    }
+      }.navigationBarItems(trailing: Button(action: {
+        viewModel.toggleBookmark()
+      }, label: {
+        Image.init(systemName: "\($viewModel.bookmarkIcon.wrappedValue)")
+      }))
+    }.contentMargins(0, for: .scrollContent)
+      .navigationBarTitleDisplayMode(.inline)
   }
 }
 

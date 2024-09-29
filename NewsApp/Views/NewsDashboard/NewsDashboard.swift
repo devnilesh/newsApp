@@ -24,7 +24,10 @@ struct NewsDashboard: View {
         }
       }
       .listStyle(GroupedListStyle())
-      .navigationBarTitle("News 🪩")
+      .navigationBarTitle("News 🪩") 
+      .navigationBarItems(trailing: NavigationLink(destination: BookmarksView()) {
+        Text("Bookmarks")
+    })
     }
   }
 }

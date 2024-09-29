@@ -6,12 +6,24 @@
 //
 
 import Foundation
-struct NewsRowViewModel: Identifiable {
-  
+import CoreData
+
+final class NewsRowViewModel: ObservableObject, Identifiable {
+  private let articleStore: ArticleStore
   private let article: Article
   
-  init(article: Article) {
+  @Published var bookmark: Bool = false {
+    didSet {
+      bookmarkIcon = !bookmark ? "bookmark" : "bookmark.fill"
+    }
+  }
+  
+  @Published var bookmarkIcon: String = ""
+  
+  init(article: Article, articleStore: ArticleStore = ArticleStore()) {
     self.article = article
+    self.articleStore = articleStore
+    self.bookmark = articleStore.isBookmarked(article)
   }
   
   var id: String {
@@ -51,6 +63,15 @@ struct NewsRowViewModel: Identifiable {
   
   var content: String? {
     article.content
+  }
+  
+  func toggleBookmark() {
+    bookmark = !bookmark
+    if bookmark {
+      articleStore.bookmarkArticle(article)
+    } else {
+      articleStore.deleteBookmark(article)
+    }
   }
 }
  
