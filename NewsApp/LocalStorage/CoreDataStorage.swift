@@ -23,4 +23,8 @@ struct CoreDataStorage {
       }
     }
   }
+  
+  var context: NSManagedObjectContext {
+    return container.viewContext
+  }
 }

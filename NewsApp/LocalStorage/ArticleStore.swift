@@ -9,12 +9,13 @@ import Foundation
 import CoreData
 
 final class ArticleStore: DataStorage {
-  private var context = CoreDataStorage.shared.container.viewContext
+  private var context: NSManagedObjectContext
   private var adaptor: NewsAdaptor
   private var articles: [Article] = []
   
-  init() {
-    adaptor = NewsAdaptor(context: context)
+  init(context: NSManagedObjectContext = CoreDataStorage.shared.container.viewContext) {
+    self.context = context
+    self.adaptor = NewsAdaptor(context: context)
   }
   
   func bookmarkArticle(_ article: Article) {
@@ -22,16 +23,11 @@ final class ArticleStore: DataStorage {
     saveContext()
   }
   
-  func getAllBookmarks() -> [Article] {
-    do {
-      let request: NSFetchRequest<NewsEntity> = NewsEntity.fetchRequest()
-      let newsEntities = try context.fetch(request)
-      articles = adaptor.getArticlsFromNewsEntities(entities: newsEntities)
-      return articles
-    } catch {
-      print("Failed to fetch bookmarks: \(error)")
-    }
-    return []
+  func getAllBookmarks() throws -> [Article] {
+    let request: NSFetchRequest<NewsEntity> = NewsEntity.fetchRequest()
+    let newsEntities = try context.fetch(request)
+    articles = adaptor.getArticlsFromNewsEntities(entities: newsEntities)
+    return articles
   }
   
   func deleteBookmark(_ article: Article) {
@@ -72,7 +68,7 @@ final class ArticleStore: DataStorage {
     if context.hasChanges {
       do {
         try context.save()
-        articles = getAllBookmarks()
+        articles = try getAllBookmarks()
       } catch {
         print("Failed to save context: \(error)")
       }

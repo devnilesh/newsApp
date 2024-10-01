@@ -8,6 +8,6 @@
 import Foundation
 protocol DataStorage {
   func bookmarkArticle(_ article: Article)
-  func getAllBookmarks() -> [Article]
+  func getAllBookmarks() throws -> [Article]
   func deleteBookmark(_ article: Article)
 }

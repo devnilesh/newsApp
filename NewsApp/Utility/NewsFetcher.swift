@@ -11,7 +11,7 @@ import Combine
 final class NewsFetcher: NewsFetchable {
   private var service: APIService
   
-  init(service: APIService = APIService()) {
+  init(service: APIService = NewsAPIService()) {
     self.service = service
   }
   

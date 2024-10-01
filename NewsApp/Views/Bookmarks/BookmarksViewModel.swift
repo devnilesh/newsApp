@@ -9,17 +9,21 @@ import Foundation
 final class BookmarksViewModel: ObservableObject {
   @Published var newsDataSource: [NewsRowViewModel] = []
   
-  private let articleStore: ArticleStore = ArticleStore()
+  private let articleStore: ArticleStore
   
-  init() {
+  init(_ articleStore: ArticleStore = ArticleStore()) {
+    self.articleStore = articleStore
     fetchAllBookmarks()
   }
   
   func fetchAllBookmarks() {
-    let articles = articleStore.getAllBookmarks()
-    newsDataSource = articles.map({ article in
-      NewsRowViewModel(article: article, articleStore: articleStore)
-    })
-    print(newsDataSource.count)
+    do {
+      let articles = try articleStore.getAllBookmarks()
+      newsDataSource = articles.map({ article in
+        NewsRowViewModel(article: article, articleStore: articleStore)
+      })
+    } catch {
+      print("Failed to fetch bookmarks: \(error)")
+    }
   }
 }

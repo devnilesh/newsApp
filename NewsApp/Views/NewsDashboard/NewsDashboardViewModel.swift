@@ -31,6 +31,7 @@ final class NewsDashboardViewModel: ObservableObject {
     fetchNews(searchText: defaultCountry)
   }
   
+  // Search news with text query
   func fetchNews(searchText: String) {
     newsFetchable.search(searchText.isEmpty ? defaultCountry : searchText).map {[weak self] response in
       return response.articles.map { article in
@@ -61,6 +62,7 @@ final class NewsDashboardViewModel: ObservableObject {
       .store(in: &disposables)
   }
   
+  // Fetch all top articles
   func fetchTopArticles() {
     newsFetchable.topArticles().map { [weak self] response in
       return response.articles.map { article in
